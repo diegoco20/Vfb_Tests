@@ -22,6 +22,7 @@ class NeuralNetwork:
 
         for name in activated:
             for target in self.graph.successors(name):
-                self.neurons[target].receive(1.0)
+                weight = self.graph[name][target]["weight"]
+                self.neurons[target].receive(weight)
 
         return activated

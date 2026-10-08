@@ -12,7 +12,12 @@ def load_connectome(path):
         for row in reader:
             source = row["source"]
             target = row["target"]
+            weight = float(row["weight"])
 
-            graph.add_edge(source, target)
+            graph.add_edge(
+                source,
+                target,
+                weight=weight
+            )
 
     return graph

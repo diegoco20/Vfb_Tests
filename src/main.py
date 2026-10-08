@@ -1,5 +1,5 @@
-from connectome.loader import load_connectome
-from brain.network import NeuralNetwork
+from src.connectome.loader import load_connectome
+from src.brain.network import NeuralNetwork
 
 
 def main():
@@ -10,12 +10,13 @@ def main():
     print(f"Neurons: {graph.number_of_nodes()}")
     print(f"Connections: {graph.number_of_edges()}")
 
-    network.stimulate("neuron_A")
-
     print("\nSimulation:")
 
-    for step in range(3):
+    for step in range(5):
+        network.stimulate("neuron_A")
+
         activated = network.update()
+
         print(f"Step {step}: {activated}")
 
 
