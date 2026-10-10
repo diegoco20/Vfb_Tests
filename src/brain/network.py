@@ -1,3 +1,4 @@
+
 from .neuron import Neuron
 
 
@@ -6,7 +7,13 @@ class NeuralNetwork:
         self.graph = graph
 
         self.neurons = {
-            name: Neuron(name)
+            name: Neuron(
+                name,
+                neuron_type=graph.nodes[name].get(
+                    "neuron_type",
+                    "interneuron"
+                )
+            )
             for name in graph.nodes
         }
 

@@ -28,3 +28,15 @@ def test_neuron_accumulates_over_time():
 
     neuron.receive(0.3)
     assert neuron.update() is True
+    
+def test_neuron_type():
+    neuron = Neuron("vision_left", neuron_type="sensory")
+
+    assert neuron.neuron_type == "sensory"
+
+
+def test_invalid_neuron_type():
+    import pytest
+
+    with pytest.raises(ValueError):
+        Neuron("unknown", neuron_type="invalid")
